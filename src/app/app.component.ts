@@ -17,16 +17,12 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
   }
-
-  // TODO : we have to make some loading thing until the image gets uploaded
-
   public promptHandler() {
     this.statusMessage = 'Generating image .. please wait !';
     this.promptService.generateImage(this.prompt).subscribe({
       next : response => {
         this.imgUrl = response.data[0].url;
         this.statusMessage = '';
-        console.log(response.data[0].url);
       },
       error : err => {
         console.log(err);
@@ -34,7 +30,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-  //TODO : change color if not valid 
   public checkFormValidity() : boolean {
     return this.prompt === '';
   }

@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PromptService {
-  // youAPIKey 
-  private myAPIKey = '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';
+  private myAPIKey = 'PUT_YOUR_API_KEY_HERE';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -19,7 +18,7 @@ export class PromptService {
   constructor(private http : HttpClient) { }
 
   public generateImage(prompt : string) : Observable<any> {
-    //send request to the Dall-E API : 
+    //send request to the OpenAI API : 
     return this.http.post('https://api.openai.com/v1/images/generations',{
       prompt: prompt,
       n: 1,
