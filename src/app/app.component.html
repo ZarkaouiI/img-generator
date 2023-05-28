@@ -1,10 +1,13 @@
 <div class="m-5 p-6">
-  <div class="align-items mx-auto mb-12 flex max-w-md">
-    {{prompt}}
+  <div class="align-items mx-auto mb-6 flex max-w-md">
     <input [(ngModel)]="prompt" class="m-2 w-8/12 rounded-lg border border-cyan-500 p-2" placeholder="Enter your prompt here" />
-    <button (click)="promptHandler()" class="m-2 w-32 rounded-full bg-cyan-500 p-2 text-white hover:bg-cyan-700">GENERATE</button>
+    <button [disabled]="checkFormValidity()" (click)="promptHandler()" class="m-2 w-32 rounded-full bg-cyan-500 p-2 text-white hover:bg-cyan-700">GENERATE</button>
   </div>
-  <div class="min-w-xl mx-auto mt-8 max-w-md border border-cyan-500 p-1">
-    <img src="../assets/img.jpg" />
+  <div class="mx-auto flex max-w-md justify-center">
+    <p>{{statusMessage}}</p>
+  </div>
+  <div class="min-w-xl mx-auto mt-2 max-w-md border border-cyan-500 p-1">
+    <!-- <img src="../assets/img.jpg" /> -->
+    <img src="{{imgUrl}}" alt="{{prompt}}"/>
   </div>
 </div>
